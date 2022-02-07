@@ -1,0 +1,344 @@
+/*
+TABLE OF CONTENTS
+    1. Global Styles
+    2. Logo
+    3. Instructions
+*/
+
+/* === 1. Global Styles === */
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: "Raleway", system-ui, sans-serif;
+	background-image: url(./assets/full-screen-bg.png);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+.dn {
+	display: none !important;
+}
+.cp {
+	cursor: pointer;
+}
+
+.content-wrapper {
+	background: #3d3db580;
+	backdrop-filter: blur(10px);
+	border-radius: 15px;
+	border: 4px solid white;
+	width: 960px;
+	height: 600px;
+	display: block;
+}
+
+/* === 2. Logo === */
+.logo {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	background: url(./assets/logo-bg.png);
+	background-size: contain;
+	display: flex;
+	aspect-ratio: 292 / 172;
+	background-repeat: no-repeat;
+	padding: 1rem;
+	justify-content: center;
+}
+
+.logo img {
+	width: auto;
+	max-width: 200px;
+}
+
+/* === 3. Instructions === */
+.instructions {
+	padding-top: 4rem;
+	display: grid;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.heading {
+	position: relative;
+	background-repeat: no-repeat;
+	min-width: 65%;
+	margin: 0 auto;
+	color: #f2b451;
+	text-align: center;
+	font-size: 1.4rem;
+}
+.heading span.text {
+	background-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, transparent 0%, rgb(12, 8, 96) 50%, transparent 100%);
+	background-size: contain;
+	padding: 1rem;
+	width: 100%;
+	display: inline-block;
+	z-index: 2;
+	position: relative;
+}
+.shine {
+	background: url(./assets/shine-line-double.png);
+	padding: 3px;
+	width: 50%;
+	position: absolute;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 1;
+}
+.shine.above {
+	transform: translateY(-60%) translateX(-50%);
+	left: 50%;
+}
+.shine.below {
+	bottom: 0;
+	left: 50%;
+	transform: translateY(60%) translateX(-50%);
+}
+
+.how-to-play {
+	display: grid;
+	gap: 1.5rem;
+	color: white;
+	font-weight: 300;
+}
+
+.how-to-play span {
+	font-size: 1.3rem;
+	animation: slideToLeft 0.5s ease forwards;
+	transform: translateY(-200%);
+	filter: blur(10px);
+	opacity: 0;
+}
+@keyframes slideToLeft {
+	to {
+		transform: translateY(0);
+		filter: none;
+		opacity: 1;
+	}
+}
+
+.how-to-play span b {
+	color: #f2b451;
+}
+.instructions .btn-wrapper {
+	animation-delay: 0.5s;
+}
+
+.btn-wrapper button {
+	padding: 1rem 3rem;
+	background: url(./assets/button-bg.png);
+	border: none;
+	background-size: contain;
+	background-repeat: no-repeat;
+	color: #f2b451;
+	font-size: 1.25rem;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	aspect-ratio: 274 / 92;
+	font-family: "Montserrat";
+	transition: 0.3s;
+	background-position: center;
+}
+button:active {
+	outline: none;
+	transform: scale(0.9);
+}
+button:disabled {
+	opacity: 0.5;
+	cursor: no-drop;
+	filter: saturate(0);
+}
+button:focus {
+	outline: none;
+}
+
+.btn-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.zoomIn {
+	animation: zoomIn 0.3s ease forwards;
+	transform: scale(0.5);
+	opacity: 0;
+}
+@keyframes zoomIn {
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.fadeIn {
+	animation: fadeIn 0.4s ease-in-out forwards;
+	opacity: 0;
+}
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+
+.game-board {
+	display: grid;
+	grid-template-rows: 1fr 9fr;
+	height: 100%;
+}
+.game-board .header {
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: grid;
+	grid-template-columns: 1.5fr 1fr 1fr 2fr 0.5fr 0.5fr;
+	color: #e4a345;
+	font-weight: bold;
+	border-bottom: 1px solid #f6f6f640;
+}
+.game-board .header > * {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.fuel-counter {
+	padding: 0 1rem;
+	gap: 10px;
+}
+.bar-outline {
+	position: relative;
+	width: 100%;
+	border: 2px solid white;
+	border-radius: 2rem;
+	padding: 1rem;
+	max-height: 50%;
+}
+
+.bar-outline .bar-fill {
+	transition: 0.3s;
+	position: absolute;
+	width: 100%;
+	background: #e4a345;
+	height: 100%;
+	top: 0;
+	left: 0%;
+	border-radius: 2rem;
+	transform: scaleY(0.85) scaleX(0.95);
+	transform-origin: center;
+}
+
+.bar-outline #fuel-count {
+	position: absolute;
+	color: white;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.bar-outline.red {
+	border-color: red;
+}
+
+.universe {
+	position: relative;
+	overflow: hidden;
+}
+
+.universe.gamePaused #gameCanvas,
+.universe.gameOver #gameCanvas {
+	filter: blur(10px);
+}
+
+.sensible-areas {
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1px solid red;
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(45deg) scale(1.5);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	aspect-ratio: 1/1;
+}
+.sensible-areas > * {
+	/* border: 2px solid black; */
+}
+
+#soundOnOff > * {
+	display: none;
+}
+#soundOnOff.ONN > #ONN,
+#soundOnOff.OFF > #OFF {
+	display: inline;
+}
+#playPause > * {
+	display: none;
+}
+#playPause.PAUSE > #PAUSE,
+#playPause.PLAY > #PLAY {
+	display: inline;
+}
+
+.universe .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	display: none;
+}
+.universe .overlay > * {
+	display: none;
+}
+.universe .overlay > .paused {
+	color: white;
+	font-size: 2rem;
+}
+.universe .overlay > .gameOver {
+	gap: 1rem;
+	background: white;
+	padding: 1rem;
+	border-radius: 10px;
+}
+.universe .overlay > .gameOver .heading {
+	color: #0a1ba0;
+	font-weight: bold;
+}
+.universe .overlay > .gameOver .stats {
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 1.2rem;
+}
+.universe .overlay > .gameOver input {
+	font-size: 1.1rem;
+	padding: 0.8rem 1.1rem;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+.universe.gamePaused .overlay > .paused,
+.universe.gameOver .overlay > .gameOver {
+	display: grid;
+}
+
+.universe.gamePaused .overlay,
+.universe.gameOver .overlay {
+	display: flex;
+}

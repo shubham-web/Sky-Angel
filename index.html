@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="main.css" />
+		<title>Sky Angel - Game</title>
+	</head>
+	<body>
+		<main class="content-wrapper">
+			<!-- LOGO -->
+			<div class="logo">
+				<img class="zoomIn" src="./assets/logo.png" alt="" />
+			</div>
+			<!-- /LOGO -->
+
+			<!-- INSTRUCTIONs -->
+			<div class="instructions">
+				<div class="heading fadeIn">
+					<span class="shine above"></span>
+					<span class="text"> How To Play </span>
+					<span class="shine below"></span>
+				</div>
+
+				<div class="how-to-play">
+					<span><b>1.</b> Move the player spaceship using the arrows keys or sensible areas.</span>
+					<span><b>2.</b> The timer present the time lapsed.</span>
+					<span><b>3.</b> The fuel counter show the remain fuel.</span>
+					<span><b>4.</b> During the flight, you need to avoid the asteroids and enemies.</span>
+					<span><b>5.</b> During the flight, you need to collect fuel to keep flying.</span>
+					<span
+						><b>6.</b> You can pause the game clicking in a button pause, and shoot by pressing the space
+						bar.</span
+					>
+				</div>
+
+				<div class="actions">
+					<div class="btn-wrapper zoomIn">
+						<button id="startGame">Start Game</button>
+					</div>
+				</div>
+			</div>
+			<!-- / INSTRUCTIONs -->
+
+			<!-- game board -->
+			<div class="game-board dn">
+				<div class="header">
+					<div class="fuel-counter">
+						<img class="icon" src="./assets/header-fuel.png" alt="" />
+						<div class="bar-outline">
+							<div id="bar-fill" class="bar-fill"></div>
+							<div id="fuel-count">12</div>
+						</div>
+					</div>
+					<div class="score-counter">
+						<span>SCORE:</span>
+						<span id="score">85</span>
+					</div>
+					<div></div>
+					<div class="timer">
+						<img src="./assets/header-timer-icon.png" alt="" />
+						<span id="timer">3s</span>
+					</div>
+					<div id="soundOnOff" class="cp ONN">
+						<img id="ONN" src="./assets/volume.png" alt="" />
+						<img id="OFF" src="./assets/muted.png" alt="" />
+					</div>
+					<div id="playPause" class="cp PAUSE">
+						<img id="PAUSE" src="./assets/pause.png" alt="" />
+						<img id="PLAY" src="./assets/play.png" alt="" />
+					</div>
+				</div>
+				<div class="universe">
+					<div class="destroy"></div>
+					<canvas id="gameCanvas"></canvas>
+					<div class="dn">
+						<img
+							class="gameAssets"
+							data-speed="fast"
+							id="bigPlanets"
+							src="./assets/big-planets.png"
+							alt=""
+						/>
+						<img
+							class="gameAssets"
+							data-speed="normal"
+							id="smallPlanets"
+							src="./assets/small-planets.png"
+							alt=""
+						/>
+						<img src="./assets/main-spaceship.png" alt="" class="gameAssets" id="mainSpaceship" />
+						<img src="./assets/player-bullet.png" alt="" class="gameAssets" id="playerbullet" />
+						<img src="./assets/asteroid-1.png" alt="" class="gameAssets" id="asteroid1" />
+						<img src="./assets/asteroid-1-cracked.png" alt="" class="gameAssets" id="asteroid1Cracked" />
+						<img src="./assets/asteroid-2.png" alt="" class="gameAssets" id="asteroid2" />
+						<img src="./assets/asteroid-2-cracked.png" alt="" class="gameAssets" id="asteroid2Cracked" />
+						<img src="./assets/enemy-spaceship.png" alt="" class="gameAssets" id="enemy" />
+						<img src="./assets/enemy-bullet.png" alt="" class="gameAssets" id="enemyBullet" />
+						<img src="./assets/fuel-element.png" alt="" class="gameAssets" id="fuelElement" />
+						<img src="./assets/friendly-spaceship.png" alt="" class="gameAssets" id="friendlySpaceship" />
+						<img src="./assets/blast-sprite.png" alt="" class="gameAssets" id="blastSprite" />
+						<audio src="./assets/shoot.mp3" class="gameAssets gameSounds" id="shootAudio"></audio>
+						<audio src="./assets/destroy.ogg" class="gameAssets gameSounds" id="destroyAudio"></audio>
+						<audio src="./assets/fuel.ogg" class="gameAssets gameSounds" id="fuelAudio"></audio>
+						<audio src="./assets/game-over.mp3" class="gameAssets gameSounds" id="gameOver"></audio>
+					</div>
+					<div class="sensible-areas">
+						<div data-dir="UP"></div>
+						<div data-dir="RIGHT"></div>
+						<div data-dir="LEFT"></div>
+						<div data-dir="DOWN"></div>
+					</div>
+					<div class="overlay">
+						<div class="paused">
+							<span>Paused</span>
+						</div>
+						<div class="gameOver">
+							<span class="heading">Game Over!</span>
+							<div class="stats">
+								<span>Score: <span id="finalScore">15</span></span>
+								<span>Time: <span id="finalTimer">15s</span></span>
+							</div>
+							<input id="playerNameInput" type="text" placeholder="Name" />
+							<div class="btn-wrapper">
+								<button id="saveBtn" disabled style="height: 60px">Save</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script type="module" src="./main.js"></script>
+	</body>
+</html>
